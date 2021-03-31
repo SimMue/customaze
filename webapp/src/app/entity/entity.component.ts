@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { EntityApiService } from '../providers/entity-api.service';
 
 @Component({
   selector: 'app-entity',
@@ -7,12 +8,14 @@ import { FormGroup } from '@angular/forms';
   styleUrls: ['./entity.component.scss'],
 })
 export class EntityComponent implements OnInit {
-  public form: FormGroup;
+  form: FormGroup;
 
-  constructor() {
+  constructor(private apiService: EntityApiService) {
     this.form = new FormGroup({});
     console.log('ok');
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.apiService.get().subscribe((response) => console.log(response));
+  }
 }

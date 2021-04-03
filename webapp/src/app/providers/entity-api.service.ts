@@ -1,23 +1,18 @@
 import { Injectable } from '@angular/core';
-import { ApolloQueryResult } from '@apollo/client/core';
-import { Apollo, gql } from 'apollo-angular';
+import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { EntitiesGQL, Entity } from 'src/generated/graphql';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EntityApiService {
-  constructor(private apollo: Apollo) {}
+  constructor(private apollo: Apollo, private entitiesGQL: EntitiesGQL) {}
 
-  get(): Observable<ApolloQueryResult<unknown>> {
-    return this.apollo.watchQuery({
-      query: gql`
-        {
-          entities {
-            exampleField
-          }
-        }
-      `,
-    }).valueChanges;
+  get(): Observable<Entity[]> {
+    return this.entitiesGQL
+      .fetch({})
+      .pipe(map((result) => result.data.entities));
   }
 }

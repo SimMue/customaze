@@ -9,7 +9,6 @@ import { EntityApiService } from '../providers/entity-api.service';
 })
 export class EntityComponent implements OnInit {
   form: FormGroup;
-  isLoading: boolean = true;
 
   constructor(private apiService: EntityApiService) {
     this.form = new FormGroup({});
@@ -17,10 +16,7 @@ export class EntityComponent implements OnInit {
 
   ngOnInit(): void {
     this.apiService.get().subscribe((result: any) => {
-      console.log(result?.data?.entities);
-      console.log(result.loading);
-      console.log(result.error);
-      this.isLoading = result.loading;
+      console.log(result);
     });
   }
 }

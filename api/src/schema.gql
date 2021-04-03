@@ -1,0 +1,36 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateEntityInput {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int!
+}
+
+type Entity {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int!
+}
+
+type Mutation {
+  createEntity(createEntityInput: CreateEntityInput!): Entity!
+  removeEntity(id: Int!): Entity!
+  updateEntity(updateEntityInput: UpdateEntityInput!): Entity!
+}
+
+type Query {
+  entities: [Entity!]!
+  entity(id: Int!): Entity!
+}
+
+input UpdateEntityInput {
+  """
+  Example field (placeholder)
+  """
+  exampleField: Int
+  id: Int!
+}

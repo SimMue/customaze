@@ -12,6 +12,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EntityComponent } from './entity/entity.component';
+import { GraphQLModule } from './graphql.module';
 
 @NgModule({
   declarations: [AppComponent, EntityComponent],
@@ -27,6 +28,7 @@ import { EntityComponent } from './entity/entity.component';
     MatInputModule,
     FlexLayoutModule,
     HttpClientModule,
+    GraphQLModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

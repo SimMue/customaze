@@ -1,16 +1,23 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ApolloQueryResult } from '@apollo/client/core';
+import { Apollo, gql } from 'apollo-angular';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class EntityApiService {
-  constructor(private httpClient: HttpClient) {}
+  constructor(private apollo: Apollo) {}
 
-  get(): Observable<string> {
-    return this.httpClient.get('http://localhost:3000', {
-      responseType: 'text',
-    });
+  get(): Observable<ApolloQueryResult<unknown>> {
+    return this.apollo.watchQuery({
+      query: gql`
+        {
+          entities {
+            exampleField
+          }
+        }
+      `,
+    }).valueChanges;
   }
 }

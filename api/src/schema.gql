@@ -3,16 +3,12 @@
 # ------------------------------------------------------
 
 input CreateEntityInput {
-  """
-  Example field (placeholder)
-  """
+  """Example field (placeholder)"""
   exampleField: Int!
 }
 
 type Entity {
-  """
-  Example field (placeholder)
-  """
+  """Example field (placeholder)"""
   exampleField: Int!
 }
 
@@ -28,9 +24,7 @@ type Query {
 }
 
 input UpdateEntityInput {
-  """
-  Example field (placeholder)
-  """
+  """Example field (placeholder)"""
   exampleField: Int
   id: Int!
 }

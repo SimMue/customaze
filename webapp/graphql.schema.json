@@ -10,19 +10,19 @@
     "types": [
       {
         "kind": "INPUT_OBJECT",
-        "name": "CreateEntityInput",
+        "name": "CreateEntityDto",
         "description": null,
         "fields": null,
         "inputFields": [
           {
-            "name": "exampleField",
-            "description": "Example field (placeholder)",
+            "name": "displayName",
+            "description": "Display name",
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "String",
                 "ofType": null
               }
             },
@@ -37,8 +37,8 @@
       },
       {
         "kind": "SCALAR",
-        "name": "Int",
-        "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+        "name": "String",
+        "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,
@@ -47,19 +47,35 @@
       },
       {
         "kind": "OBJECT",
-        "name": "Entity",
+        "name": "EntityModel",
         "description": null,
         "fields": [
           {
-            "name": "exampleField",
-            "description": "Example field (placeholder)",
+            "name": "displayName",
+            "description": "Display name",
             "args": [],
             "type": {
               "kind": "NON_NULL",
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "String",
+                "ofType": null
+              }
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "id",
+            "description": null,
+            "args": [],
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "ID",
                 "ofType": null
               }
             },
@@ -73,6 +89,16 @@
         "possibleTypes": null
       },
       {
+        "kind": "SCALAR",
+        "name": "ID",
+        "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
         "kind": "OBJECT",
         "name": "Mutation",
         "description": null,
@@ -82,14 +108,14 @@
             "description": null,
             "args": [
               {
-                "name": "createEntityInput",
+                "name": "dto",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "CreateEntityInput",
+                    "name": "CreateEntityDto",
                     "ofType": null
                   }
                 },
@@ -103,7 +129,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Entity",
+                "name": "EntityModel",
                 "ofType": null
               }
             },
@@ -136,7 +162,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Entity",
+                "name": "EntityModel",
                 "ofType": null
               }
             },
@@ -148,14 +174,14 @@
             "description": null,
             "args": [
               {
-                "name": "updateEntityInput",
+                "name": "dto",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "UpdateEntityInput",
+                    "name": "UpdateEntityDto",
                     "ofType": null
                   }
                 },
@@ -169,7 +195,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Entity",
+                "name": "EntityModel",
                 "ofType": null
               }
             },
@@ -179,6 +205,16 @@
         ],
         "inputFields": null,
         "interfaces": [],
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "SCALAR",
+        "name": "Int",
+        "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
+        "fields": null,
+        "inputFields": null,
+        "interfaces": null,
         "enumValues": null,
         "possibleTypes": null
       },
@@ -202,7 +238,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "Entity",
+                    "name": "EntityModel",
                     "ofType": null
                   }
                 }
@@ -237,7 +273,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "Entity",
+                "name": "EntityModel",
                 "ofType": null
               }
             },
@@ -252,16 +288,16 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "UpdateEntityInput",
+        "name": "UpdateEntityDto",
         "description": null,
         "fields": null,
         "inputFields": [
           {
-            "name": "exampleField",
-            "description": "Example field (placeholder)",
+            "name": "displayName",
+            "description": "Display name",
             "type": {
               "kind": "SCALAR",
-              "name": "Int",
+              "name": "String",
               "ofType": null
             },
             "defaultValue": null,
@@ -276,7 +312,7 @@
               "name": null,
               "ofType": {
                 "kind": "SCALAR",
-                "name": "Int",
+                "name": "ID",
                 "ofType": null
               }
             },
@@ -293,16 +329,6 @@
         "kind": "SCALAR",
         "name": "Boolean",
         "description": "The `Boolean` scalar type represents `true` or `false`.",
-        "fields": null,
-        "inputFields": null,
-        "interfaces": null,
-        "enumValues": null,
-        "possibleTypes": null
-      },
-      {
-        "kind": "SCALAR",
-        "name": "String",
-        "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
         "fields": null,
         "inputFields": null,
         "interfaces": null,

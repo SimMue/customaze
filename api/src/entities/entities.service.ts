@@ -1,27 +1,34 @@
 import { Injectable } from '@nestjs/common';
-import { CreateEntityInput } from './dto/create-entity.input';
-import { UpdateEntityInput } from './dto/update-entity.input';
-import { Entity } from './entities/entity.entity';
+import { CreateEntityDto } from './dtos/create-entity.dto';
+import { UpdateEntityDto } from './dtos/update-entity.dto';
+import { EntityModel } from './models/entity.model';
 
 @Injectable()
 export class EntitiesService {
-  create(createEntityInput: CreateEntityInput) {
-    return 'This action adds a new entity';
+  private models: EntityModel[] = [];
+
+  private toModel(dto: CreateEntityDto, id: number) {
+    const model = new EntityModel();
+    model.id = id;
+    model.displayName = dto.displayName;
+    return model;
   }
 
-  findAll(): Entity[] {
-    return [
-      {
-        exampleField: 1,
-      },
-    ];
+  create(dto: CreateEntityDto) {
+    const model = this.toModel(dto, this.models.length + 1);
+    this.models.push(model);
+    return model;
+  }
+
+  findAll() {
+    return this.models;
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} entity`;
+    return this.models.find((m) => m.id === id);
   }
 
-  update(id: number, updateEntityInput: UpdateEntityInput) {
+  update(id: number, dto: UpdateEntityDto) {
     return `This action updates a #${id} entity`;
   }
 

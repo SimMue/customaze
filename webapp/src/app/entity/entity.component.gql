@@ -1,5 +1,13 @@
 query Entities {
   entities {
-    exampleField
+    id
+    displayName
+  }
+}
+
+mutation CreateEntity($dto: CreateEntityDto!) {
+  createEntity(dto: $dto) {
+    id
+    displayName
   }
 }

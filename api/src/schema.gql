@@ -2,29 +2,30 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreateEntityInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
+input CreateEntityDto {
+  """Display name"""
+  displayName: String!
 }
 
-type Entity {
-  """Example field (placeholder)"""
-  exampleField: Int!
+type EntityModel {
+  """Display name"""
+  displayName: String!
+  id: ID!
 }
 
 type Mutation {
-  createEntity(createEntityInput: CreateEntityInput!): Entity!
-  removeEntity(id: Int!): Entity!
-  updateEntity(updateEntityInput: UpdateEntityInput!): Entity!
+  createEntity(dto: CreateEntityDto!): EntityModel!
+  removeEntity(id: Int!): EntityModel!
+  updateEntity(dto: UpdateEntityDto!): EntityModel!
 }
 
 type Query {
-  entities: [Entity!]!
-  entity(id: Int!): Entity!
+  entities: [EntityModel!]!
+  entity(id: Int!): EntityModel!
 }
 
-input UpdateEntityInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
+input UpdateEntityDto {
+  """Display name"""
+  displayName: String
+  id: ID!
 }

@@ -1,38 +1,34 @@
 import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
-import { CreateEntityInput } from './dto/create-entity.input';
-import { UpdateEntityInput } from './dto/update-entity.input';
+import { CreateEntityDto } from './dtos/create-entity.dto';
+import { UpdateEntityDto } from './dtos/update-entity.dto';
 import { EntitiesService } from './entities.service';
-import { Entity } from './entities/entity.entity';
+import { EntityModel } from './models/entity.model';
 
-@Resolver(() => Entity)
+@Resolver(() => EntityModel)
 export class EntitiesResolver {
   constructor(private readonly entitiesService: EntitiesService) {}
 
-  @Mutation(() => Entity)
-  createEntity(
-    @Args('createEntityInput') createEntityInput: CreateEntityInput,
-  ) {
-    return this.entitiesService.create(createEntityInput);
+  @Mutation(() => EntityModel)
+  createEntity(@Args('dto') dto: CreateEntityDto) {
+    return this.entitiesService.create(dto);
   }
 
-  @Query(() => [Entity], { name: 'entities' })
+  @Query(() => [EntityModel], { name: 'entities' })
   findAll() {
     return this.entitiesService.findAll();
   }
 
-  @Query(() => Entity, { name: 'entity' })
+  @Query(() => EntityModel, { name: 'entity' })
   findOne(@Args('id', { type: () => Int }) id: number) {
     return this.entitiesService.findOne(id);
   }
 
-  @Mutation(() => Entity)
-  updateEntity(
-    @Args('updateEntityInput') updateEntityInput: UpdateEntityInput,
-  ) {
-    return this.entitiesService.update(updateEntityInput.id, updateEntityInput);
+  @Mutation(() => EntityModel)
+  updateEntity(@Args('dto') dto: UpdateEntityDto) {
+    return this.entitiesService.update(dto.id, dto);
   }
 
-  @Mutation(() => Entity)
+  @Mutation(() => EntityModel)
   removeEntity(@Args('id', { type: () => Int }) id: number) {
     return this.entitiesService.remove(id);
   }

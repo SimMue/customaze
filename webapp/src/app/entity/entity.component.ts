@@ -15,8 +15,13 @@ export class EntityComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.apiService.get().subscribe((result: any) => {
+    this.apiService.findAll().subscribe((result: any) => {
       console.log(result);
+      this.apiService
+        .create({
+          displayName: 'test',
+        })
+        .subscribe((result2) => console.log(result2));
     });
   }
 }

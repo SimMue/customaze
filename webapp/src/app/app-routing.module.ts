@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { EntityComponent } from './entity/entity.component';
+import { MetaEntityComponent } from './meta-entity/meta-entity.component';
 
-const routes: Routes = [{ path: 'entity', component: EntityComponent }];
+const routes: Routes = [
+  { path: 'meta-entity', component: MetaEntityComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

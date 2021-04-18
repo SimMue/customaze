@@ -1,0 +1,13 @@
+query MetaEntities {
+  metaEntities {
+    id
+    displayName
+  }
+}
+
+mutation CreateMetaEntity($dto: CreateMetaEntityDto!) {
+  createMetaEntity(createMetaEntityDto: $dto) {
+    id
+    displayName
+  }
+}

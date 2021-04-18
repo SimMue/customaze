@@ -2,6 +2,7 @@
   "name": "customaze",
   "version": "0.0.0",
   "scripts": {
+    "dev": "concurrently \"npm:start\" \"npm:gql:gen\"",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
@@ -9,8 +10,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "gql:gen": "graphql-codegen --config codegen.yml",
-    "gql:gen:watch": "graphql-codegen --watch"
+    "gql:gen": "graphql-codegen --config codegen.yml"
   },
   "private": true,
   "dependencies": {

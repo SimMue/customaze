@@ -10,7 +10,7 @@
     "types": [
       {
         "kind": "INPUT_OBJECT",
-        "name": "CreateEntityDto",
+        "name": "CreateMetaEntityDto",
         "description": null,
         "fields": null,
         "inputFields": [
@@ -47,7 +47,7 @@
       },
       {
         "kind": "OBJECT",
-        "name": "EntityModel",
+        "name": "MetaEntityDto",
         "description": null,
         "fields": [
           {
@@ -104,18 +104,18 @@
         "description": null,
         "fields": [
           {
-            "name": "createEntity",
+            "name": "createMetaEntity",
             "description": null,
             "args": [
               {
-                "name": "dto",
+                "name": "createMetaEntityDto",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "CreateEntityDto",
+                    "name": "CreateMetaEntityDto",
                     "ofType": null
                   }
                 },
@@ -129,7 +129,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "EntityModel",
+                "name": "MetaEntityDto",
                 "ofType": null
               }
             },
@@ -137,7 +137,7 @@
             "deprecationReason": null
           },
           {
-            "name": "removeEntity",
+            "name": "removeMetaEntity",
             "description": null,
             "args": [
               {
@@ -162,7 +162,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "EntityModel",
+                "name": "MetaEntityDto",
                 "ofType": null
               }
             },
@@ -170,18 +170,18 @@
             "deprecationReason": null
           },
           {
-            "name": "updateEntity",
+            "name": "updateMetaEntity",
             "description": null,
             "args": [
               {
-                "name": "dto",
+                "name": "updateMetaEntityDto",
                 "description": null,
                 "type": {
                   "kind": "NON_NULL",
                   "name": null,
                   "ofType": {
                     "kind": "INPUT_OBJECT",
-                    "name": "UpdateEntityDto",
+                    "name": "UpdateMetaEntityDto",
                     "ofType": null
                   }
                 },
@@ -195,7 +195,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "EntityModel",
+                "name": "MetaEntityDto",
                 "ofType": null
               }
             },
@@ -224,7 +224,7 @@
         "description": null,
         "fields": [
           {
-            "name": "entities",
+            "name": "metaEntities",
             "description": null,
             "args": [],
             "type": {
@@ -238,7 +238,7 @@
                   "name": null,
                   "ofType": {
                     "kind": "OBJECT",
-                    "name": "EntityModel",
+                    "name": "MetaEntityDto",
                     "ofType": null
                   }
                 }
@@ -248,7 +248,7 @@
             "deprecationReason": null
           },
           {
-            "name": "entity",
+            "name": "metaEntity",
             "description": null,
             "args": [
               {
@@ -273,7 +273,7 @@
               "name": null,
               "ofType": {
                 "kind": "OBJECT",
-                "name": "EntityModel",
+                "name": "MetaEntityDto",
                 "ofType": null
               }
             },
@@ -288,7 +288,7 @@
       },
       {
         "kind": "INPUT_OBJECT",
-        "name": "UpdateEntityDto",
+        "name": "UpdateMetaEntityDto",
         "description": null,
         "fields": null,
         "inputFields": [

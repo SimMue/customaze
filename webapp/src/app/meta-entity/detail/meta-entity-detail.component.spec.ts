@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EntityComponent } from './entity.component';
+import { MetaEntityDetailComponent } from './meta-entity-detail.component';
 
-describe('EntityComponent', () => {
-  let component: EntityComponent;
-  let fixture: ComponentFixture<EntityComponent>;
+describe('MetaEntityDetailComponent', () => {
+  let component: MetaEntityDetailComponent;
+  let fixture: ComponentFixture<MetaEntityDetailComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [EntityComponent],
+      declarations: [MetaEntityDetailComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EntityComponent);
+    fixture = TestBed.createComponent(MetaEntityDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

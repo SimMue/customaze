@@ -2,29 +2,29 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
-input CreateEntityDto {
+input CreateMetaEntityDto {
   """Display name"""
   displayName: String!
 }
 
-type EntityModel {
+type MetaEntityDto {
   """Display name"""
   displayName: String!
   id: ID!
 }
 
 type Mutation {
-  createEntity(dto: CreateEntityDto!): EntityModel!
-  removeEntity(id: Int!): EntityModel!
-  updateEntity(dto: UpdateEntityDto!): EntityModel!
+  createMetaEntity(createMetaEntityDto: CreateMetaEntityDto!): MetaEntityDto!
+  removeMetaEntity(id: Int!): MetaEntityDto!
+  updateMetaEntity(updateMetaEntityDto: UpdateMetaEntityDto!): MetaEntityDto!
 }
 
 type Query {
-  entities: [EntityModel!]!
-  entity(id: Int!): EntityModel!
+  metaEntities: [MetaEntityDto!]!
+  metaEntity(id: Int!): MetaEntityDto!
 }
 
-input UpdateEntityDto {
+input UpdateMetaEntityDto {
   """Display name"""
   displayName: String
   id: ID!

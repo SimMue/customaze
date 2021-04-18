@@ -6,16 +6,17 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { EntityComponent } from './entity/entity.component';
 import { GraphQLModule } from './graphql.module';
-
+import { MetaEntityDetailComponent } from './meta-entity/detail/meta-entity-detail.component';
+import { MetaEntityComponent } from './meta-entity/meta-entity.component';
 @NgModule({
-  declarations: [AppComponent, EntityComponent],
+  declarations: [AppComponent, MetaEntityComponent, MetaEntityDetailComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -29,6 +30,7 @@ import { GraphQLModule } from './graphql.module';
     FlexLayoutModule,
     HttpClientModule,
     GraphQLModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,7 +1,7 @@
 import { Field, ID, ObjectType } from '@nestjs/graphql';
 
 @ObjectType()
-export class EntityModel {
+export class MetaEntityDto {
   @Field(() => ID)
   id: number;
 

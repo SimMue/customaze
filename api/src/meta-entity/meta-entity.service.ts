@@ -4,35 +4,35 @@ import { Repository } from 'typeorm';
 import { CreateMetaEntityDto } from './dtos/create-meta-entity.dto';
 import { UpdateMetaEntityDto } from './dtos/update-meta-entity.dto';
 import { MetaEntityEntity } from './entities/meta-entity.entity';
-import { MetaEntityMapService } from './meta-entity-map.service';
 
 @Injectable()
 export class MetaEntityService {
   constructor(
     @InjectRepository(MetaEntityEntity)
     private repo: Repository<MetaEntityEntity>,
-    private mapService: MetaEntityMapService,
   ) {}
 
   async create(dto: CreateMetaEntityDto) {
-    const entity = this.mapService.fromCreateDto(dto);
-    const result = await this.repo.save(entity);
-    return this.mapService.toDto(result);
+    const entity = await this.repo.save(CreateMetaEntityDto.toEntity(dto));
+    return MetaEntityEntity.toDto(entity);
   }
 
-  findAll() {
-    return this.repo.find();
+  async findAll() {
+    const entities = await this.repo.find();
+    return MetaEntityEntity.toDtos(entities);
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} metaEntity`;
+  async findOne(guid: string) {
+    const entity = await this.repo.findOne(guid);
+    return MetaEntityEntity.toDto(entity);
   }
 
-  update(id: number, dto: UpdateMetaEntityDto) {
-    return `This action updates a #${id} metaEntity`;
+  async update(dto: UpdateMetaEntityDto) {
+    const entity = await this.repo.save(UpdateMetaEntityDto.toEntity(dto));
+    return MetaEntityEntity.toDto(entity);
   }
 
-  remove(id: number) {
+  remove(id: string) {
     return `This action removes a #${id} metaEntity`;
   }
 }

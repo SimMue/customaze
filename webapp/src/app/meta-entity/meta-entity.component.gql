@@ -1,13 +1,25 @@
 query MetaEntities {
   metaEntities {
-    id
+    guid
+    displayName
+  }
+}
+
+query MetaEntity($guid: String!) {
+  metaEntity(guid: $guid) {
+    guid
     displayName
   }
 }
 
 mutation CreateMetaEntity($dto: CreateMetaEntityDto!) {
   createMetaEntity(createMetaEntityDto: $dto) {
-    id
-    displayName
+    guid
+  }
+}
+
+mutation UpdateMetaEntity($dto: UpdateMetaEntityDto!) {
+  updateMetaEntity(updateMetaEntityDto: $dto) {
+    guid
   }
 }

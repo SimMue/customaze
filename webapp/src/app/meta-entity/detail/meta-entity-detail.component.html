@@ -1,10 +1,17 @@
-<form [formGroup]="form" fxLayout="column">
-  <mat-form-field>
-    <mat-label>Display Name</mat-label>
-    <input matInput />
-  </mat-form-field>
-  <mat-form-field>
-    <mat-label>Name</mat-label>
-    <input matInput />
-  </mat-form-field>
-</form>
+<div class="wrapper">
+  <form [formGroup]="form" fxLayout="column">
+    <!-- Display Name -->
+    <mat-form-field>
+      <mat-label>Display Name</mat-label>
+      <input matInput formControlName="displayName" />
+    </mat-form-field>
+    <div fxLayout="row" fxFlexAlign="end">
+      <!-- Save Button -->
+      <button mat-flat-button color="primary" type="submit" (click)="save()">
+        Save
+      </button>
+      <!-- Cancel Button -->
+      <button mat-flat-button routerLink="/meta-entity">Cancel</button>
+    </div>
+  </form>
+</div>

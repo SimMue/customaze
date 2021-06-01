@@ -4,6 +4,9 @@ import {
   CreateMetaEntityDto,
   CreateMetaEntityGQL,
   MetaEntitiesGQL,
+  MetaEntityGQL,
+  UpdateMetaEntityDto,
+  UpdateMetaEntityGQL,
 } from 'src/generated/graphql';
 
 @Injectable({
@@ -12,18 +15,32 @@ import {
 export class MetaEntityApiService {
   constructor(
     private metaEntitiesGQL: MetaEntitiesGQL,
-    private createMetaEntityGQL: CreateMetaEntityGQL
+    private metaEntityGQL: MetaEntityGQL,
+    private createMetaEntityGQL: CreateMetaEntityGQL,
+    private updateMetaEntityGQL: UpdateMetaEntityGQL
   ) {}
+
+  async findOne(guid: string) {
+    const result = await this.metaEntityGQL.watch({ guid }).refetch();
+    return result?.data?.metaEntity;
+  }
 
   async findAll() {
     const result = await this.metaEntitiesGQL.watch().refetch();
     return result?.data?.metaEntities;
   }
 
-  create(dto: CreateMetaEntityDto) {
-    return this.createMetaEntityGQL
+  async create(dto: CreateMetaEntityDto) {
+    return await this.createMetaEntityGQL
       .mutate({ dto })
       .pipe(map((result) => result?.data?.createMetaEntity))
+      .toPromise();
+  }
+
+  async update(dto: UpdateMetaEntityDto) {
+    return await this.updateMetaEntityGQL
+      .mutate({ dto })
+      .pipe(map((result) => result?.data?.updateMetaEntity))
       .toPromise();
   }
 }

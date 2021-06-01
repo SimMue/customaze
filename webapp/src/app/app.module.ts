@@ -6,7 +6,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
-import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -15,22 +14,24 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { MetaEntityDetailComponent } from './meta-entity/detail/meta-entity-detail.component';
 import { MetaEntityComponent } from './meta-entity/meta-entity.component';
+import { TableModule } from './table/table.module';
+
 @NgModule({
   declarations: [AppComponent, MetaEntityComponent, MetaEntityDetailComponent],
   imports: [
-    BrowserModule,
     AppRoutingModule,
+    BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatIconModule,
-    MatFormFieldModule,
-    MatInputModule,
-    FlexLayoutModule,
     HttpClientModule,
+    FlexLayoutModule,
     GraphQLModule,
-    MatTableModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatIconModule,
+    MatInputModule,
+    MatToolbarModule,
+    TableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

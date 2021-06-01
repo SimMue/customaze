@@ -1,8 +1,10 @@
-<mat-toolbar>
-  <button mat-icon-button routerLink="meta-entity">
-    <mat-icon>dashboard_customize</mat-icon>
-  </button>
+<!-- Toolbar -->
+<mat-toolbar class="mat-elevation-z4" color="primary">
+  <header fxLayout="center">
+    <button mat-icon-button routerLink="/meta-entity">
+      <mat-icon>dashboard_customize</mat-icon>
+    </button>
+  </header>
 </mat-toolbar>
-<div style="width: 600px">
-  <router-outlet></router-outlet>
-</div>
+
+<router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Args, Int, Mutation, Query, Resolver } from '@nestjs/graphql';
+import { Args, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CreateMetaEntityDto } from './dtos/create-meta-entity.dto';
 import { MetaEntityDto } from './dtos/meta-entity.dto';
 import { UpdateMetaEntityDto } from './dtos/update-meta-entity.dto';
@@ -21,17 +21,17 @@ export class MetaEntityResolver {
   }
 
   @Query(() => MetaEntityDto, { name: 'metaEntity' })
-  findOne(@Args('id', { type: () => Int }) id: number) {
-    return this.metaEntityService.findOne(id);
+  findOne(@Args('guid', { type: () => String }) guid: string) {
+    return this.metaEntityService.findOne(guid);
   }
 
   @Mutation(() => MetaEntityDto)
   updateMetaEntity(@Args('updateMetaEntityDto') dto: UpdateMetaEntityDto) {
-    return this.metaEntityService.update(dto.id, dto);
+    return this.metaEntityService.update(dto);
   }
 
   @Mutation(() => MetaEntityDto)
-  removeMetaEntity(@Args('id', { type: () => Int }) id: number) {
-    return this.metaEntityService.remove(id);
+  removeMetaEntity(@Args('guid', { type: () => String }) guid: string) {
+    return this.metaEntityService.remove(guid);
   }
 }

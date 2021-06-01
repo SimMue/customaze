@@ -1,0 +1,6 @@
+<ng-template #header>
+  {{ title }}
+</ng-template>
+<ng-template let-item #body>
+  {{ item[property] | date: "dd. MMM yyyy" }}
+</ng-template>

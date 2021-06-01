@@ -10,22 +10,22 @@ input CreateMetaEntityDto {
 type MetaEntityDto {
   """Display name"""
   displayName: String!
-  id: ID!
+  guid: ID!
 }
 
 type Mutation {
   createMetaEntity(createMetaEntityDto: CreateMetaEntityDto!): MetaEntityDto!
-  removeMetaEntity(id: Int!): MetaEntityDto!
+  removeMetaEntity(guid: String!): MetaEntityDto!
   updateMetaEntity(updateMetaEntityDto: UpdateMetaEntityDto!): MetaEntityDto!
 }
 
 type Query {
   metaEntities: [MetaEntityDto!]!
-  metaEntity(id: Int!): MetaEntityDto!
+  metaEntity(guid: String!): MetaEntityDto!
 }
 
 input UpdateMetaEntityDto {
   """Display name"""
-  displayName: String
-  id: ID!
+  displayName: String!
+  guid: ID!
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { MetaEntityDto } from 'src/generated/graphql';
 import { MetaEntityApiService } from './meta-entity-api.service';
 
@@ -10,11 +11,10 @@ import { MetaEntityApiService } from './meta-entity-api.service';
 export class MetaEntityComponent implements OnInit {
   entities: MetaEntityDto[] = [];
 
-  constructor(private apiService: MetaEntityApiService) {}
-
-  private async refresh() {
-    this.entities = await this.apiService.findAll();
-  }
+  constructor(
+    private router: Router,
+    private apiService: MetaEntityApiService
+  ) {}
 
   async ngOnInit() {
     await this.refresh();
@@ -25,5 +25,13 @@ export class MetaEntityComponent implements OnInit {
       displayName: `Entity ${this.entities.length}`,
     });
     await this.refresh();
+  }
+
+  navigateToDetail(entity: MetaEntityDto) {
+    this.router.navigate(['meta-entity/detail', entity?.guid]);
+  }
+
+  private async refresh() {
+    this.entities = await this.apiService.findAll();
   }
 }

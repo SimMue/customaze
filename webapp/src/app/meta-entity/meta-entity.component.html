@@ -1,2 +1,3 @@
-<button (click)="create()">Create</button>
-<p *ngFor="let entity of entities">{{ entity.displayName }}</p>
+<app-table [source]="entities" (rowDblClick)="navigateToDetail($event)">
+  <app-column property="displayName" title="Display Name"></app-column>
+</app-table>

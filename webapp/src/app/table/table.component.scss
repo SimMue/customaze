@@ -1,0 +1,27 @@
+// Toolbar
+mat-toolbar {
+  background-color: white;
+}
+
+.mat-icon {
+  font-size: 18px;
+}
+
+mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+// Table
+table {
+  width: 100%;
+}
+
+.mat-table-wrapper {
+  max-height: calc(100% - 16px);
+  overflow-y: auto;
+}
+
+.row-selected {
+  background-color: lightgray;
+}
